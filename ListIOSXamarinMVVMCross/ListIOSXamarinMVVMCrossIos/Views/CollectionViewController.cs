@@ -33,7 +33,7 @@ namespace ListIOSXamarinMVVMCrossIos.Views
             layout.ItemSize = new SizeF((float)UIScreen.MainScreen.Bounds.Width, 100f);
 
             var collectionView = new UICollectionView(UIScreen.MainScreen.ApplicationFrame, layout);
-            collectionView.Source = new UICollectionViewSource();
+            collectionView.Delegate = new ListDelegateFlowLayout();
 
             CollectionPersons.RegisterNibForCell(CollectionViewCell.Nib, CollectionViewCell.Key);
             var sourse = new MvxCollectionViewSource(CollectionPersons, CollectionViewCell.Key);
