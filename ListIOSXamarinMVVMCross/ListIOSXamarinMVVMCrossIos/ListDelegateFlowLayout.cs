@@ -1,22 +1,23 @@
 ﻿using System;
+using System.Drawing;
+using Foundation;
+using UIKit;
+using ListIOSXamarinMVVMCross.Model;
+using System.Collections.Generic;
+using CoreGraphics;
+
 namespace ListIOSXamarinMVVMCrossIos
 {
-    public class ThingDelegateFlowLayout : UICollectionViewDelegateFlowLayout
+    public class ListDelegateFlowLayout : UICollectionViewDelegateFlowLayout
     {
-        List<Thing> Things;
-
-        public ThingDelegateFlowLayout(List<Thing> things)
-        {
-            Things = things;
-        }
-
         // this is the override that allows you to dynamically size UICollectionView items
-        public override SizeF GetSizeForItem(UICollectionView collectionView, UICollectionViewLayout layout, NSIndexPath indexPath)
+        public override CGSize GetSizeForItem(UICollectionView collectionView, UICollectionViewLayout layout, NSIndexPath indexPath)
         {
-            return new SizeF(
-                width: UIScreen.MainScreen.Bounds.Width, // Set the width to whatever you want. In this case, it's the screen width.
-                height: Things[indexPath.Row].Height // Set the item height
-            );
+            return new SizeF(100, 100);
+            //return new SizeF(
+            //    width: UIScreen.MainScreen.Bounds.Width, // Set the width to whatever you want. In this case, it's the screen width.
+            //    height: Persons[indexPath.Row].Height // Set the item height
+            //);
         }
     }
 }
