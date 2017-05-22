@@ -7,6 +7,8 @@ using MvvmCross.Binding.BindingContext;
 using ListIOSXamarinMVVMCrossIos.Cell;
 using MvvmCross.Binding.iOS.Views;
 using ListIOSXamarinMVVMCross.Model;
+using System.Drawing;
+using System.Collections.Generic;
 
 namespace ListIOSXamarinMVVMCrossIos.Views
 {
@@ -25,6 +27,13 @@ namespace ListIOSXamarinMVVMCrossIos.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+
+            var layout = new UICollectionViewFlowLayout();
+            layout.SectionInset = new UIEdgeInsets(UIScreen.MainScreen.ApplicationFrame.Height - 0, 0, 0, 0);
+            layout.ItemSize = new SizeF((float)UIScreen.MainScreen.Bounds.Width, 100f);
+
+            var collectionView = new UICollectionView(UIScreen.MainScreen.ApplicationFrame, layout);
+            collectionView.Source = new UICollectionViewSource();
 
             CollectionPersons.RegisterNibForCell(CollectionViewCell.Nib, CollectionViewCell.Key);
             var sourse = new MvxCollectionViewSource(CollectionPersons, CollectionViewCell.Key);
