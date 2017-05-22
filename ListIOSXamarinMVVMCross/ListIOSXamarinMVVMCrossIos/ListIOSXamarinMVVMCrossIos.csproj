@@ -134,6 +134,7 @@
       <DependentUpon>CollectionViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup.cs" />
+    <Compile Include="ListDelegateFlowLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ListIOSXamarinMVVMCross\ListIOSXamarinMVVMCross.csproj">
