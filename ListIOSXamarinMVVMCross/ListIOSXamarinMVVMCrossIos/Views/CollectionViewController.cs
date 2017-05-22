@@ -1,14 +1,9 @@
-﻿using System;
-using ListIOSXamarinMVVMCross.ViewModels;
+﻿using ListIOSXamarinMVVMCross.ViewModels;
+using ListIOSXamarinMVVMCrossIos.Cell;
+using MvvmCross.Binding.BindingContext;
+using MvvmCross.Binding.iOS.Views;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Views;
-using UIKit;
-using MvvmCross.Binding.BindingContext;
-using ListIOSXamarinMVVMCrossIos.Cell;
-using MvvmCross.Binding.iOS.Views;
-using ListIOSXamarinMVVMCross.Model;
-using System.Drawing;
-using System.Collections.Generic;
 
 namespace ListIOSXamarinMVVMCrossIos.Views
 {
@@ -28,16 +23,10 @@ namespace ListIOSXamarinMVVMCrossIos.Views
         {
             base.ViewDidLoad();
 
-            var layout = new UICollectionViewFlowLayout();
-            layout.SectionInset = new UIEdgeInsets(UIScreen.MainScreen.ApplicationFrame.Height - 0, 0, 0, 0);
-            layout.ItemSize = new SizeF((float)UIScreen.MainScreen.Bounds.Width, 100f);
-
-            var collectionView = new UICollectionView(UIScreen.MainScreen.ApplicationFrame, layout);
-            collectionView.Delegate = new ListDelegateFlowLayout();
-
             CollectionPersons.RegisterNibForCell(CollectionViewCell.Nib, CollectionViewCell.Key);
             var sourse = new MvxCollectionViewSource(CollectionPersons, CollectionViewCell.Key);
             CollectionPersons.Source = sourse;
+            CollectionPersons.Delegate = new ListDelegateFlowLayout();
             var set = this.CreateBindingSet<CollectionViewController, ListViewModel>();
             set.Bind(sourse).For(s => s.ItemsSource).To(vm => vm.Persons);
             set.Apply();

@@ -13,7 +13,7 @@ namespace ListIOSXamarinMVVMCrossIos
         // this is the override that allows you to dynamically size UICollectionView items
         public override CGSize GetSizeForItem(UICollectionView collectionView, UICollectionViewLayout layout, NSIndexPath indexPath)
         {
-            return new SizeF(500, 10);
+            return new CGSize(325, 40);
             //return new SizeF(
             //    width: UIScreen.MainScreen.Bounds.Width, // Set the width to whatever you want. In this case, it's the screen width.
             //    height: Persons[indexPath.Row].Height // Set the item height

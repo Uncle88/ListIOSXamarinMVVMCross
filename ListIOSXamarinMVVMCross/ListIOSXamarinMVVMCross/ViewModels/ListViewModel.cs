@@ -15,7 +15,6 @@ namespace ListIOSXamarinMVVMCross.ViewModels
             new Person() { Name = "Petr", Surname = "Ivanov" },
             new Person() { Name = "Matvey", Surname = "Kozlov" },
             };
-            //ShowViewModel<ListViewModel>(Persons);
         }
 
         private List<Person> _persons;
@@ -28,15 +27,5 @@ namespace ListIOSXamarinMVVMCross.ViewModels
                 RaisePropertyChanged(() => Persons);
             }
         }
-
-        //private MvxCommand _command;
-        //public MvxCommand Command
-        //{
-        //    get
-        //    {
-        //        return new MvxCommand(() => )
-        //    }
-        //}
-
     }
 }
